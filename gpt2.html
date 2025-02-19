@@ -138,7 +138,7 @@
       color: #0a192f;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease, transform 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -202,14 +202,14 @@
       font-size: 1.5rem;
       color: #64ffda;
     }
-    .option-card.beaches { background-image: url('images/beach'); }
-    .option-card.mountains { background-image: url('images/mountain.jpg'); }
-    .option-card.heritage { background-image: url('images/cities.jpg'); }
-    .option-card.cities { background-image: url('images/heritage.jpg'); }
-    .option-card.religious { background-image: url('images/religious.jpg'); }
-    .option-card.hillstation { background-image: url('images/wildlife.jpg'); }
-    .option-card.wildlife { background-image: url('images/hill station.jpg'); }
-    .option-card.adventure { background-image: url('images/adventure.jpg'); }
+  .option-card.beaches { background-image: url('https://github.com/akashyad7/images/blob/main/beach.jpg?raw=true'); }
+  .option-card.mountains { background-image: url('https://github.com/akashyad7/images/blob/main/mountain.jpg?raw=true'); }
+  .option-card.heritage { background-image: url('https://github.com/akashyad7/images/blob/main/heritage.jpg?raw=true'); }
+  .option-card.cities { background-image: url('https://github.com/akashyad7/images/blob/main/cities.jpg?raw=true'); }
+  .option-card.religious { background-image: url('https://github.com/akashyad7/images/blob/main/religious.jpg?raw=true'); }
+  .option-card.hillstation { background-image: url('https://github.com/akashyad7/images/blob/main/hill%20station.jpg?raw=true'); }
+  .option-card.wildlife { background-image: url('https://github.com/akashyad7/images/blob/main/wildlife.jpg?raw=true'); }
+  .option-card.adventure { background-image: url('https://github.com/akashyad7/images/blob/main/adventure.jpg?raw=true'); }
     /* Search Page (City Grid) */
     #city-grid {
       display: grid;
@@ -222,7 +222,7 @@
       border-radius: 10px;
       text-align: center;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease, transform 0.3s ease;
     }
     .city-item:hover {
       background: rgba(100,255,218,0.2);
@@ -237,14 +237,22 @@
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
       gap: 20px;
     }
-    .grid-item {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      transition: background 0.3s ease;
+    #tourist-spots .grid-item {
+      background-image: url('your-tourist-image-url.jpg'); /* Replace with actual image URL */
+      background-size: cover;
+      background-position: center;
+      color: white; /* Ensures text remains visible */
+      padding: 40px;
     }
-    .grid-item:hover { background: rgba(100,255,218,0.2); }
+
+    #hotels .grid-item {
+      background-image: url('your-hotel-image-url.jpg'); /* Replace with actual image URL */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px;
+    }
+
     /* NEW: Details Page Top-Right Search Bar */
     .details-search-container {
       position: absolute;
@@ -474,8 +482,20 @@
 
     const destinationDetails = {
       delhi: {
-        touristSpots: ["Red Fort", "India Gate", "Qutub Minar", "Humayun's Tomb", "Lotus Temple"],
-        hotels: ["The Imperial", "Taj Palace", "ITC Maurya", "Le Meridien", "Hyatt Regency"],
+        touristSpots:[
+          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/beach.jpg?raw=true" },
+          { name: "India Gate", image: "https://upload.wikimedia.org/wikipedia/commons/b/b6/India_Gate_in_New_Delhi_03-2016_img3.jpg" },
+          { name: "Qutub Minar", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Qutub_Minar.JPG" },
+          { name: "Humayun's Tomb", image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Humayun%27s_Tomb_2016.jpg" },
+          { name: "Lotus Temple", image: "https://upload.wikimedia.org/wikipedia/commons/0/04/Lotus_Temple_Delhi.jpg" }
+      ],
+        hotels: [
+    { name: "The Imperial", image: "https://upload.wikimedia.org/wikipedia/commons/1/12/The_Imperial_New_Delhi.jpg" },
+    { name: "Taj Palace", image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taj_Palace_Hotel%2C_New_Delhi.jpg" },
+    { name: "ITC Maurya", image: "https://upload.wikimedia.org/wikipedia/commons/3/38/ITC_Maurya_New_Delhi.jpg" },
+    { name: "Le Meridien", image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Le_Meridien_Hotel_New_Delhi.jpg" },
+    { name: "Hyatt Regency", image: "https://upload   .wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg" }
+  ],
         travelEquipment: ["Comfortable walking shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
         travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation."
       },
@@ -484,9 +504,652 @@
         hotels: ["The Taj Mahal Palace", "Trident Nariman Point", "The Oberoi", "JW Marriott", "Sahara Star"],
         travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Umbrella", "Camera"],
         travelTips: "Mumbai is bustling, so plan your travel accordingly, and be aware of local traffic conditions."
-      }
+      },
+      ahmedabad: {
+      touristSpots: ["Sabarmati Ashram", "Sidi Saiyyed Mosque", "Kankaria Lake", "Akshardham Temple", "Adalaj Stepwell"],
+      hotels: ["Hyatt Ahmedabad", "Novotel Ahmedabad", "The House of MG", "Crowne Plaza Ahmedabad", "Radisson Blu Ahmedabad"],
+      travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
+      travelTips: "Ahmedabad can get hot, so carry water and plan indoor visits during the afternoon heat."
+      },
+      ajmer: {
+        touristSpots: ["Ajmer Sharif Dargah", "Ana Sagar Lake", "Taragarh Fort", "Adhai Din Ka Jhonpra", "Mayo College"],
+        hotels: ["Ajmer Ashok", "Prithviraj Hotel", "The Greenhouse Resort", "Hotel Dinesh", "Krishna Inn"],
+        travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Hat", "Water bottle"],
+        travelTips: "Ajmer is a religious destination, so dress modestly and be respectful at the Dargah."
+      },
+      alibaug: {
+        touristSpots: ["Alibaug Beach", "Kihim Beach", "Kolaba Fort", "Nagaon Beach", "Saswane Beach"],
+        hotels: ["Radisson Blu Resort", "Fortune Select Exotica", "The Fern Silvanus Resort", "U Tropicana Alibaug", "Casa De Kihim"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
+        travelTips: "Best to visit during the cooler months. Be prepared for a relaxed beach vibe."
+      },
+      amritsar: {
+        touristSpots: ["Golden Temple", "Jallianwala Bagh", "Wagah Border", "Durgiana Temple", "Mata Lal Devi Mandir"],
+        hotels: ["Taj Swarna", "Holiday Inn Amritsar", "Ramada Amritsar", "Hotel Shiraz Continental", "The Hyatt Amritsar"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Visit the Golden Temple early in the morning to experience the peaceful atmosphere."
+      },
+      auli: {
+        touristSpots: ["Auli Ski Resort", "Chenab Lake", "Gurso Bugyal", "Nanda Devi Peak", "Joshimath"],
+        hotels: ["Auli Resort", "The Clifftop Club", "Joshimath Resort", "Blue Poppy Resorts", "GMVN Auli Tourist Rest House"],
+        travelEquipment: ["Warm clothing", "Sunscreen", "Ski gear", "Camera", "Water bottle"],
+        travelTips: "Auli is a snow destination, so prepare for cold weather and enjoy winter sports."
+      },
+      aurangabad: {
+        touristSpots: ["Ellora Caves", "Ajanta Caves", "Bibi Ka Maqbara", "Daulatabad Fort", "Grishneshwar Temple"],
+        hotels: ["Vivanta Aurangabad", "Taj Hotel", "The Meadows Resort", "Hotel Kailas", "Ramada by Wyndham"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Aurangabad is a great place for history buffs; plan to visit caves early to avoid crowds."
+      },
+      bangalore: {
+        touristSpots: ["Bangalore Palace", "Cubbon Park", "Lalbagh Botanical Garden", "Vidhana Soudha", "Ulsoor Lake"],
+        hotels: ["The Leela Palace", "Taj West End", "The Ritz-Carlton", "JW Marriott", "ITC Gardenia"],
+        travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Camera", "Water bottle"],
+        travelTips: "Bangalore has a cool climate, but always carry an umbrella, as sudden rains are common."
+      },
+      baga: {
+        touristSpots: ["Baga Beach", "Calangute Beach", "Anjuna Beach", "Chapora Fort", "Vagator Beach"],
+        hotels: ["Tito's Holiday Club", "Royal Orchid Beach Resort", "The Baga Beach Resort", "La Sunila Suites", "Shanti Morada"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
+        travelTips: "Baga is a bustling beach destination, perfect for nightlife and water sports."
+      },
+      bandipur: {
+        touristSpots: ["Bandipur National Park", "Muthanga Wildlife Sanctuary", "Gopalaswamy Betta", "Hampi", "Sultan Bathery"],
+        hotels: ["The Serai Bandipur", "Bandipur Safari Lodge", "Kabini River Lodge", "Eagle Ridge Resort", "Bison River Resort"],
+        travelEquipment: ["Binoculars", "Camera", "Comfortable footwear", "Sunhat", "Water bottle"],
+        travelTips: "Best visited in the winter months for wildlife sightings and pleasant weather."
+      },
+      badrinath: {
+        touristSpots: ["Badrinath Temple", "Mana Village", "Vasudhara Falls", "Tapt Kund", "Neelkanth Peak"],
+        hotels: ["Sarovar Portico Badrinath", "Hotel Narayan Palace", "Hotel Aarti", "GMVN Tourist Rest House", "Kailash Residency"],
+        travelEquipment: ["Warm clothing", "Sunscreen", "Camera", "Water bottle", "Walking stick"],
+        travelTips: "Badrinath is a pilgrimage site, so respect local customs and dress modestly."
+      },
+      bannerghatta: {
+        touristSpots: ["Bannerghatta Biological Park", "Butterfly Park", "Zoological Garden", "Safari Tour", "Elephant Sanctuary"],
+        hotels: ["Eagle Ridge Resort", "Royal Orchid Resort", "Eagle Ridge Resort", "The Windflower Prakruthi Resort", "Vama Retreats"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars"],
+        travelTips: "Be sure to take a safari tour to experience the wildlife up close."
+      },
+      bharatpur: {
+        touristSpots: ["Keoladeo National Park", "Bharatpur Palace", "Lohagarh Fort", "Brahma Sarovar", "Ganga Mandir"],
+        hotels: ["The Bagh", "Sarai Bharatpur", "Kishan Lodge", "Hotel Sunbird", "Birders Inn"],
+        travelEquipment: ["Binoculars", "Comfortable shoes", "Sunscreen", "Camera", "Water bottle"],
+        travelTips: "Bharatpur is famous for birdwatching, so bring binoculars and enjoy the serene landscape."
+      },
+      bhopal: {
+        touristSpots: ["Upper Lake", "Taj-ul-Masajid", "Sanchi Stupa", "Bhimbetka Caves", "Gohar Mahal"],
+        hotels: ["Jehan Numa Palace Hotel", "Courtyard by Marriott", "Hotel Lake View Ashok", "The Residency", "Hotel Noor-Us-Sabah"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Bhopal is a mix of nature and history, so balance sightseeing with relaxation by the lake."
+      },
+      calangute: {
+        touristSpots: ["Calangute Beach", "Baga Beach", "Candolim Beach", "Fort Aguada", "Chapora Fort"],
+        hotels: ["The Baga Beach Resort", "La Sunila Suites", "Tito's Holiday Club", "Hotel Calangute Towers", "Radisson Goa Candolim"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
+        travelTips: "Calangute can get crowded during peak season, so plan accordingly and arrive early."
+      },
+      chennai: {
+        touristSpots: ["Marina Beach", "Kapaleeshwarar Temple", "Fort St. George", "Santhome Cathedral", "Government Museum"],
+        hotels: ["Taj Coromandel", "The Leela Palace", "ITC Grand Chola", "Park Hyatt", "Trident Chennai"],
+        travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Camera", "Water bottle"],
+        travelTips: "Chennai is hot and humid, so stay hydrated and visit attractions early to avoid the heat."
+      },
+      chopta: {
+        touristSpots: ["Chopta Valley", "Tungnath Temple", "Chandrashila Peak", "Deoria Tal", "Madhyamaheshwar Temple"],
+        hotels: ["The Meadows Resort", "GMVN Chopta", "Tungnath Resort", "Chopta Himalayan Resort", "Brahma Kamal Resort"],
+        travelEquipment: ["Warm clothing", "Camera", "Binoculars", "Walking stick", "Water bottle"],
+        travelTips: "Chopta is a popular trekking spot, so be prepared for cold weather and challenging treks."
+      },
+      coonoor: {
+        touristSpots: ["Sim's Park", "Catherine Falls", "Dolphin's Nose", "Laws Falls", "Coimbatore Road"],
+        hotels: ["The Gateway Hotel", "Taj Savoy Hotel", "Runnymede", "Sky High Resort", "Hotel Vivek"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Coonoor is a cool hill station, so pack light woolens and enjoy the scenic views."
+      },
+      darjeeling: {
+        touristSpots: ["Tiger Hill", "Batasia Loop", "Darjeeling Himalayan Railway", "Peace Pagoda", "Mirik Lake"],
+        hotels: ["Mayfair Darjeeling", "Windamere Hotel", "The Glenburn Tea Estate", "Sterling Darjeeling", "Hotel Sanderling"],
+        travelEquipment: ["Warm clothing", "Camera", "Sunscreen", "Water bottle", "Hat"],
+        travelTips: "Darjeeling is known for its tea gardens, so be sure to explore them while enjoying the views."
+      },
+      daman: {
+        touristSpots: ["Devka Beach", "Jampore Beach", "Daman Fort", "Moti Daman", "Cathedral of Bom Jesus"],
+        hotels: ["Daman Ganga Valley Resort", "The Deltin", "Silver Sands Beach Resort", "Golden Palm Resort", "Hotel Princess Park"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
+        travelTips: "Daman offers a peaceful beach experience. Go for a long walk along the beaches during sunrise or sunset."
+      },
+      delhi: {
+        touristSpots: ["Red Fort", "India Gate", "Qutub Minar", "Humayun's Tomb", "Lotus Temple"],
+        hotels: ["The Imperial", "Taj Palace", "ITC Maurya", "Le Meridien", "Hyatt Regency"],
+        travelEquipment: ["Comfortable walking shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation."
+      },
+      diu: {
+        touristSpots: ["Diu Fort", "Nagoa Beach", "St. Paul's Church", "Jallandhar Beach", "Gangeshwar Temple"],
+        hotels: ["The Diu Hotal", "Radhika Beach Resort", "Cidade De Diu", "The Kohinoor Hotel", "Hotel Apana"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Diu has a laid-back atmosphere; visit the beaches early to enjoy the peaceful sunrise."
+      },
+      dwarka: {
+        touristSpots: ["Dwarkadhish Temple", "Rukmini Devi Temple", "Dwarka Beach", "Bet Dwarka", "Nageshwar Jyotirlinga Temple"],
+        hotels: ["The Dwarika Hotel", "Dwarka Residency", "Hotel Gomti", "The Grand Bhagwati", "Dwarka Sundar Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Dwarka is a sacred city, so dress modestly, especially when visiting temples."
+      },
+      gangtok: {
+        touristSpots: ["Rumtek Monastery", "Tsomgo Lake", "Nathula Pass", "Banjhakri Waterfalls", "MG Road"],
+        hotels: ["The Elgin Nor-Khill", "Mayfair Gangtok", "Hotel Sonam Delek", "The Royal Plaza", "Gangtok Hotel"],
+        travelEquipment: ["Warm clothing", "Sunscreen", "Camera", "Water bottle", "Comfortable shoes"],
+        travelTips: "Gangtok is at a high altitude, so acclimatize for a day or two to avoid altitude sickness."
+      },
+      gir: {
+        touristSpots: ["Gir National Park", "Sasan Gir", "Devalia Safari Park", "Kankai Mata Temple", "Mahadev Waterfall"],
+        hotels: ["Gir Lion Lodge", "Sasan Gir Resort", "The Gir Jungle Lodge", "Gir Forest Guest House", "Vesna Jungle Resort"],
+        travelEquipment: ["Binoculars", "Camera", "Comfortable safari clothing", "Water bottle", "Sunhat"],
+        travelTips: "Book your safari early, as the slots fill quickly, and avoid visiting during peak summer for a more comfortable experience."
+      },
+      goa: {
+        touristSpots: ["Calangute Beach", "Anjuna Beach", "Baga Beach", "Fort Aguada", "Basilica of Bom Jesus"],
+        hotels: ["Taj Exotica Resort", "The Leela Goa", "Radisson Blu Resort", "Holiday Inn Resort", "Grand Hyatt Goa"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Goa is vibrant throughout the year, but visiting during the monsoon season offers a quieter experience."
+      },
+      gokarna: {
+        touristSpots: ["Om Beach", "Kudle Beach", "Gokarna Beach", "Mirjan Fort", "Utsav Beach"],
+        hotels: ["Namaste Yoga Farm", "Kudle Beach View Resort", "Om Beach Resort", "Gokarna International Beach Resort", "Hotel SwaSwara"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Gokarna is known for its relaxed vibe, ideal for beach lovers and those looking for a peaceful retreat."
+      },
+      gwalior: {
+        touristSpots: ["Gwalior Fort", "Saas Bahu Temple", "Jai Vilas Palace", "Tomb of Tansen", "Man Mandir Palace"],
+        hotels: ["Taj Usha Kiran Palace", "Gwalior Regency", "The Central Park", "Hotel Landmark", "Hotel Banjara Hills"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Hat", "Water bottle"],
+        travelTips: "Gwalior has a hot climate; visiting early in the morning or late in the evening is advisable."
+      },
+      guruvayur: {
+        touristSpots: ["Guruvayur Temple", "Punnathur Kotta", "Elephant Sanctuary", "Chavakkad Beach", "Vadanappilly Beach"],
+        hotels: ["Guruvayurappan Hotel", "Sreepathi Hotel", "Ramada Resort", "Kochi Marriott Hotel", "Sree Krishna Residency"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Modest clothing"],
+        travelTips: "Respect the religious sentiments and dress modestly when visiting the Guruvayur Temple."
+      },
+      haridwar: {
+        touristSpots: ["Har Ki Pauri", "Mansa Devi Temple", "Chandi Devi Temple", "Shanti Kunj", "Rajaji National Park"],
+        hotels: ["Ganga Lahari", "Hotel Haridwar", "Aloha On The Ganges", "The Haveli Hari Ganga", "Hotel Ganga Sadan"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Haridwar is a sacred place, so it’s important to respect local customs and traditions."
+      },
+      imphal: {
+        touristSpots: ["Loktak Lake", "Kangla Fort", "Shree Shree Govindajee Temple", "Keibul Lamjao National Park", "Imphal War Cemetery"],
+        hotels: ["Classic Hotel Imphal", "Hotel Nirmala", "Hotel Sangai", "Imphal Hotels", "Roya Garden Resort"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Light clothing"],
+        travelTips: "Imphal is best visited during the cooler months, and make sure to explore the local culture."
+      },
+      indore: {
+        touristSpots: ["Rajwada Palace", "Lal Baag Palace", "Kanch Mandir", "Indore Zoo", "Siddhivinayak Temple"],
+        hotels: ["Radisson Blu Indore", "The Park Indore", "Sayaji Indore", "Wow Hotel", "Treebo Trend Ashtavinayak"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Indore is known for its food culture, so try the local snacks like poha and jalebi."
+      },
+      jalandhar: {
+        touristSpots: ["Devi Talab Mandir", "Jang-e-Azadi Memorial", "Surjit Hockey Stadium", "Pushpa Gujral Science City", "Vasant Vihar Park"],
+        hotels: ["Ramada Encore", "Hotel President", "The Maya Hotel", "Hotel The Royal", "Country Inn & Suites"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Jalandhar is a sports hub, so you can explore local sports history and enjoy shopping for sports equipment."
+      },
+      jaipur: {
+        touristSpots: ["Amber Fort", "City Palace", "Hawa Mahal", "Jantar Mantar", "Jaigarh Fort"],
+        hotels: ["The Rambagh Palace", "Taj Jai Mahal Palace", "Trident Jaipur", "The Lalit Jaipur", "ITC Rajputana"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Jaipur can be very hot in the summer, so it’s best to explore historical sites early in the morning."
+      },
+      jimCorbett: {
+        touristSpots: ["Jim Corbett National Park", "Nainital Lake", "Corbett Museum", "Dhikala Zone", "Garjia Temple"],
+        hotels: ["Corbett Leela Vilas", "Taj Corbett Resort", "Jim's Jungle Retreat", "The Golden Tusk", "Corbett View Resort"],
+        travelEquipment: ["Binoculars", "Camera", "Comfortable safari clothing", "Water bottle", "Hat"],
+        travelTips: "Corbett is a wildlife destination, so book your safari early and avoid visiting during monsoon season."
+      },
+      jodhpur: {
+        touristSpots: ["Mehrangarh Fort", "Umaid Bhawan Palace", "Jaswant Thada", "Mandore Gardens", "Clock Tower"],
+        hotels: ["Umaid Bhawan Palace Hotel", "Taj Hari Mahal", "Ranbanka Palace", "The Ajit Bhawan", "Hotel Shambhu"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Jodhpur is known for its blue cityscape, so take time to explore the old town and its colorful streets."
+      },
+      juhu: {
+        touristSpots: ["Juhu Beach", "ISKCON Temple", "Prithvi Theatre", "Versova Beach", "Siddhivinayak Temple"],
+        hotels: ["JW Marriott Mumbai Juhu", "Taj Lands End", "Novotel Mumbai", "The Retreat Hotel", "Hotel Sea Princess"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Juhu is a popular spot for Mumbai locals, so it's best to visit during the early morning to avoid the crowd."
+      },
+      kanha: {
+        touristSpots: ["Kanha National Park", "Kisli Gate", "Bamhani Village", "Mukki Gate", "Kanha Museum"],
+        hotels: ["Tuli Tiger Resort", "Kanha Earth Lodge", "Wild Chalet Resort", "Hotel Kanha Tiger", "Chitvan Jungle Lodge"],
+        travelEquipment: ["Binoculars", "Camera", "Safari clothing", "Water bottle", "Sunhat"],
+        travelTips: "Book your safari in advance to ensure you get a spot in the national park."
+      },
+      kanpur: {
+        touristSpots: ["Jajmau", "Green Park Stadium", "Kanpur Zoo", "ISKCON Kanpur", "Bithoor"],
+        hotels: ["The Landmark Hotel", "Ramada Kanpur", "Hotel Royal Cliff", "Kanpur Marriott Hotel", "Hotel Comfort Inn"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Kanpur is an industrial hub, so try to explore the historical and cultural sites for a change of pace."
+      },
+      kangra: {
+        touristSpots: ["Kangra Fort", "Bajreshwari Temple", "Masrur Rock-cut Temples", "Dal Lake", "Tibet Museum"],
+        hotels: ["Kangra Fort Resort", "Hotel Kangra Valley", "Taj Theog Resort", "Hotel Himsagar", "Hotel Dev Taru"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Light clothing"],
+        travelTips: "Kangra is a peaceful hill station; explore the nature walks and heritage sites for a relaxed experience."
+      },
+      kanchipuram: {
+        touristSpots: ["Kailasanathar Temple", "Ekambareswarar Temple", "Varadaraja Perumal Temple", "Kamatchi Amman Temple", "Kanchipuram Silk Sarees Market"],
+        hotels: ["MGM Beach Resort", "The Regency Kanchipuram", "Hotel Ganga", "Sree Annapoorna Hotel", "Hotel Sakthi"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Kanchipuram is famous for its temples and silk, so don’t miss the vibrant local markets."
+      },
+      kasauli: {
+        touristSpots: ["Monkey Point", "Christ Church", "Kasauli Brewery", "Manki Point", "Sunset Point"],
+        hotels: ["The Kasauli Resort", "Ramada Kasauli", "Kasauli Regency", "Hotel Ros Common", "Kasauli Inn"],
+        travelEquipment: ["Warm clothing", "Comfortable footwear", "Camera", "Water bottle", "Sunscreen"],
+        travelTips: "Kasauli is a quiet hill station, perfect for nature walks and peaceful retreats."
+      },
+      kaza: {
+        touristSpots: ["Kye Monastery", "Pin Valley National Park", "Chicham Bridge", "Tabo Monastery", "Kaza Town Market"],
+        hotels: ["Hotel Spiti Sarai", "Zostel Kaza", "Hotel Himalayan Kaza", "Hotel Deyzor", "Spiti Heritage Hotel"],
+        travelEquipment: ["Warm clothing", "Camera", "Water bottle", "Sunhat", "Comfortable shoes"],
+        travelTips: "Kaza is at a high altitude, so acclimatize and carry enough warm clothing for your trip."
+      },
+      kedarnath: {
+        touristSpots: ["Kedarnath Temple", "Kedarnath Wildlife Sanctuary", "Chorabari Lake", "Shankaracharya Samadhi", "Gauri Kund"],
+        hotels: ["Kedar Ganga Resort", "The Char Dham Camp", "Kedarnath Camp", "Brahmakamal Tourist Guest House", "Hotel Shivalik"],
+        travelEquipment: ["Warm clothing", "Water bottle", "Comfortable trekking shoes", "Sunscreen", "Camera"],
+        travelTips: "Kedarnath is a sacred pilgrimage destination, so plan your visit during the pilgrim season, and carry necessary supplies."
+      },
+      kodaikanal: {
+        touristSpots: ["Kodaikanal Lake", "Coaker's Walk", "Pillar Rocks", "Bryant Park", "Bear Shola Falls"],
+        hotels: ["The Carlton", "Kodai Resort Hotel", "Green Pastures", "Hilltop Towers", "Hotel Kodaikanal International"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Water bottle", "Camera", "Warm clothing"],
+        travelTips: "Kodaikanal is known for its pleasant weather; it's best to visit between September and May for clear skies."
+      },
+      kochi: {
+        touristSpots: ["Fort Kochi", "Chinese Fishing Nets", "Mattancherry Palace", "St. Francis Church", "Jewish Synagogue"],
+        hotels: ["Taj Malabar Resort & Spa", "The Brunton Boatyard", "Kochi Marriott Hotel", "Holiday Inn Cochin", "Le Meridien Kochi"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Explore Kochi by foot to fully appreciate the mix of Dutch, Portuguese, and British influences in the architecture."
+      },
+      kovalam: {
+        touristSpots: ["Lighthouse Beach", "Hawa Beach", "Samudra Beach", "Kovalam Art Gallery", "Vellayani Lake"],
+        hotels: ["The Leela Kovalam", "Turtle On The Beach", "Sagara Beach Resort", "Niraamaya Retreats", "The Beach Hotel"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Kovalam is a beach destination, so visit early in the morning or late in the evening to enjoy the tranquility."
+      },
+      kumarakom: {
+        touristSpots: ["Vembanad Lake", "Kumarakom Bird Sanctuary", "Aruvikkuzhi Waterfalls", "Bay Island Driftwood Museum", "Pathiramanal Island"],
+        hotels: ["Kumarakom Lake Resort", "The Zuri Kumarakom", "Cocobay Resort", "Backwater Ripples", "Vembanadu Lake Villas"],
+        travelEquipment: ["Light clothing", "Camera", "Sunscreen", "Water bottle", "Binoculars for bird watching"],
+        travelTips: "Kumarakom is famous for its backwaters; try a houseboat cruise to experience the serene beauty of the region."
+      },
+      kufri: {
+        touristSpots: ["Kufri Fun World", "Mahasu Peak", "Fagu", "Himalayan Nature Park", "Indira Tourist Park"],
+        hotels: ["Wildflower Hall", "Kufri Holiday Resort", "Hotel Snow King", "Chail Palace Hotel", "The Oberoi Cecil"],
+        travelEquipment: ["Warm clothing", "Comfortable shoes", "Sunscreen", "Water bottle", "Camera"],
+        travelTips: "Kufri is a popular winter destination for snow lovers, so visit between December and February for the best snow experience."
+      },
+      lonavala: {
+        touristSpots: ["Bhushi Dam", "Tiger's Leap", "Pawna Lake", "Lonavala Lake", "Karla Caves"],
+        hotels: ["Fariyas Resort", "The Dukes Retreat", "The Lagoona Resort", "Radisson Blu Resort", "Hilton Shillim Estate Retreat & Spa"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Light clothing"],
+        travelTips: "Lonavala is a popular weekend getaway from Mumbai and Pune, so visit on weekdays to avoid the crowds."
+      },
+      lansdowne: {
+        touristSpots: ["Tarkeshwar Mahadev Temple", "Bhulla Lake", "Snow View Point", "St. Mary's Church", "Garhwal Rifles Regimental War Memorial"],
+        hotels: ["Blue Pine Resort", "Lansdowne Trip", "Kasang Regency Hill Resort", "Ramada by Wyndham", "Hotel Fairydale"],
+        travelEquipment: ["Warm clothing", "Comfortable shoes", "Camera", "Water bottle", "Sunscreen"],
+        travelTips: "Lansdowne is less crowded, offering a peaceful getaway with scenic views and a tranquil atmosphere."
+      },
+      leh: {
+        touristSpots: ["Pangong Lake", "Nubra Valley", "Magnetic Hill", "Thiksey Monastery", "Leh Palace"],
+        hotels: ["The Grand Dragon Ladakh", "Ladakh Sarai Resort", "Indus Valley Camp", "Hotel Nimmu House", "Zangtho Hotel"],
+        travelEquipment: ["Warm clothing", "High-altitude medication", "Camera", "Water bottle", "Sunscreen"],
+        travelTips: "Leh is at a very high altitude; take time to acclimatize and hydrate to avoid altitude sickness."
+      },
+      lucknow: {
+        touristSpots: ["Bara Imambara", "Chota Imambara", "Rumi Darwaza", "Hazratganj", "Ambedkar Memorial Park"],
+        hotels: ["Taj Mahal Lucknow", "The Piccadily", "Hotel Clarks Avadh", "Hotel Levana", "Golden Tulip Lucknow"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Lucknow is known for its heritage and culture, so make time to explore the ancient monuments and sample its famous kebabs."
+      },
+      madurai: {
+        touristSpots: ["Meenakshi Amman Temple", "Thirumalai Nayakkar Palace", "Goripalayam Dargah", "Koodal Azhagar Temple", "Alagar Koil"],
+        hotels: ["The Gateway Hotel Pasumalai", "Hotel Supreme", "Madurai Residency", "Hotel Heritage Madurai", "SREE SARAVANA BHAVAN"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Madurai is one of the oldest cities in India, so ensure you visit the temples early to avoid the heat and crowds."
+      },
+      malpe: {
+        touristSpots: ["Malpe Beach", "St. Mary's Island", "Kudlu Falls", "Udupi Sri Krishna Temple", "Kaup Beach"],
+        hotels: ["Malpe Beach Resort", "Swan Group of Hotels", "The Ocean Pearl", "Hotel Udupi Residency", "Kedige Resort"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Malpe is a peaceful beach destination, perfect for relaxing and enjoying water activities like boat rides and water sports."
+      },
+      marina: {
+        touristSpots: ["Marina Beach", "St. Thomas Mount", "San Thome Basilica", "Fort St. George", "Kapaleeshwarar Temple"],
+        hotels: ["Taj Coromandel", "The Leela Palace", "ITC Grand Chola", "Holiday Inn Chennai", "Hotel Savera"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Marina Beach is one of the longest urban beaches in the world, ideal for an evening stroll."
+      },
+      manali: {
+        touristSpots: ["Solang Valley", "Rohtang Pass", "Hadimba Temple", "Old Manali", "Manu Temple"],
+        hotels: ["The Himalayan", "Manali Resort", "Hotel Kullu Valley", "Apple Valley Resort", "Holiday Inn Manali"],
+        travelEquipment: ["Warm clothing", "Comfortable shoes", "Sunscreen", "Camera", "Water bottle"],
+        travelTips: "Manali is a popular tourist destination, so visiting during the off-season will help avoid the crowds."
+      },
+      manas: {
+        touristSpots: ["Manas National Park", "Bansbari Range", "Kochari Temple", "Pondicherry Lake", "Manas River"],
+        hotels: ["Manas Lodge", "Bansbari Lodge", "Kochari Resort", "Ahaar Resorts", "Pondicherry Palace"],
+        travelEquipment: ["Comfortable footwear", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife watching"],
+        travelTips: "Manas is a UNESCO World Heritage site, so take a guided tour to fully appreciate its wildlife and natural beauty."
+      },
+      mangalore: {
+        touristSpots: ["Panambur Beach", "St. Aloysius Chapel", "Kadri Manjunath Temple", "Mangaladevi Temple", "Tannirbhavi Beach"],
+        hotels: ["The Gateway Hotel", "Hotel Moti Mahal", "Spindrift", "Vivanta Mangalore", "Srinivas Hotel"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Mangalore is known for its beaches and temples, so make sure to explore the coastal beauty and visit the temples."
+      },
+      matheran: {
+        touristSpots: ["Echo Point", "Panorama Point", "Charlotte Lake", "Matheran Toy Train", "King George Point"],
+        hotels: ["Rangoli Retreat", "The West End Hotel", "Adamo The Resort", "Matheran Resort", "Hotel Kumar Plaza"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Hat", "Camera", "Water bottle"],
+        travelTips: "Matheran is a car-free hill station, so enjoy the peaceful environment by walking or riding a horse."
+      },
+      mcleodganj: {
+        touristSpots: ["Dalai Lama Temple", "Bhagsu Waterfall", "Triund Hill", "Kangra Fort", "Namgyal Monastery"],
+        hotels: ["Fortune Park Moksha", "McLlo Guest House", "Him View Hotel", "The Snow Lion", "Green Hotel"],
+        travelEquipment: ["Comfortable trekking shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Mcleodganj is a popular trekking destination, so carry trekking gear if you plan on exploring the trails."
+      },
+      munnar: {
+        touristSpots: ["Tea Gardens", "Eravikulam National Park", "Mattupetty Dam", "Attukal Waterfalls", "Kundala Lake"],
+        hotels: ["Tea County Munnar", "The Fog Munnar", "Munnar Tea Country Resort", "Spice Tree Munnar", "Golden Ridge Mountain Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Munnar is famous for its tea plantations, so don’t miss visiting the tea estates and exploring the scenic views."
+      },
+      mahabalipuram: {
+        touristSpots: ["Shore Temple", "Arjuna's Penance", "Pancha Rathas", "Mahabalipuram Beach", "Varaha Cave Temple"],
+        hotels: ["Radisson Blu Resort", "Hotel Mamalla Heritage", "The Leela Palace", "Siva Residency", "Hotel Sea Breeze"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Mahabalipuram is a UNESCO World Heritage site, so take time to explore its ancient monuments and beaches."
+      },
+      mahabaleshwar: {
+        touristSpots: ["Venna Lake", "Pratapgarh Fort", "Elephant's Head Point", "Wilson Point", "Lingmala Waterfalls"],
+        hotels: ["Evershine Resort", "The Mansingh Palace", "Regal Hotel", "Holiday Resort", "Mahabaleshwar Heights"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Mahabaleshwar is a hill station known for its scenic beauty and strawberry farms, so don’t forget to taste the local strawberries."
+      },
+      mysore: {
+        touristSpots: ["Mysore Palace", "Chamundeshwari Temple", "Brindavan Gardens", "Mysore Zoo", "St. Philomena's Church"],
+        hotels: ["Radisson Blu Plaza", "The Windflower Resort", "Mysore Gateway", "Hotel Le Ruchi", "Hotel Roopa"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Mysore is known for its rich culture, palaces, and the famous Mysore Dasara festival, so plan your trip accordingly."
+      },
+      munsiyari: {
+        touristSpots: ["Birthi Falls", "Ralam Valley", "Kali Temple", "Munsiyari Hill", "Nanda Devi Temple"],
+        hotels: ["Munsiyari Himalayan Resort", "KMVN Rest House", "Siri Pahar Hotel", "Munsiyari Guest House", "Pinewood Cottage"],
+        travelEquipment: ["Warm clothing", "Comfortable trekking shoes", "Camera", "Water bottle", "Binoculars for bird watching"],
+        travelTips: "Munsiyari is a serene hill station, so carry trekking gear and be prepared for high-altitude treks."
+      },
+      nagpur: {
+        touristSpots: ["Deekshabhoomi", "Seminary Hill", "Nagzira Wildlife Sanctuary", "Sitabuldi Fort", "Zero Mile Stone"],
+        hotels: ["Taj Residency", "The Pride Hotel", "Le Meridien Nagpur", "Hotel Centre Point", "Radisson Blu Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Nagpur is known for its oranges, so don’t miss the local fruit markets."
+      },
+      nainital: {
+        touristSpots: ["Naini Lake", "Naina Devi Temple", "Snow View Point", "Tiffin Top", "The Mall Road"],
+        hotels: ["The Naini Retreat", "Shervani Hilltop", "Nainital Lake Resort", "The Pavillion", "Hotel Himalaya"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Nainital is a popular hill station, so it’s best to visit early in the morning or late afternoon to avoid the crowds."
+      },
+      nagarhole: {
+        touristSpots: ["Nagarhole National Park", "Kabini River", "Irupu Falls", "Gadiyara", "Brahmagiri Hill"],
+        hotels: ["Kabini River Lodge", "The Serai Kabini", "Eagle Ridge Resort", "Orange County Kabini", "Coorg Cliffs Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife viewing"],
+        travelTips: "Nagarhole is known for its wildlife and scenic views, so opt for a jeep safari to explore the park."
+      },
+      ooty: {
+        touristSpots: ["Ooty Lake", "Botanical Gardens", "Doddabetta Peak", "Rose Garden", "Nilgiri Mountain Railway"],
+        hotels: ["The Taj Savoy Hotel", "Fern Hill Resort", "Sterling Ooty Fern Hill", "Savoy Ooty", "Hotel Sapphire International"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Ooty is a popular hill station, so plan your visit during the off-season to avoid the crowds."
+      },
+      panchgani: {
+        touristSpots: ["Table Land", "Parsi Point", "Sydney Point", "Devil's Kitchen", "Mahabaleshwar Hill Station"],
+        hotels: ["Ramsukh Resort", "Blue Country Resort", "Hotel Panchgani", "Regal Hotel", "Kohinoor Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Panchgani is perfect for a peaceful getaway, offering stunning views of valleys and hills."
+      },
+      pahalgam: {
+        touristSpots: ["Betaab Valley", "Aru Valley", "Baisaran", "Mammal Temple", "Pahalgam Golf Course"],
+        hotels: ["Pahalgam Hotel", "Baisaran Valley Resort", "Kashmir International Hotel", "Hotel Heevan", "Green View Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Pahalgam is a base for the Amarnath Yatra, so be prepared for religious crowds during peak season."
+      },
+      pench: {
+        touristSpots: ["Pench National Park", "Pench Tiger Reserve", "Kohka Lake", "Sillari Gate", "Pachgaon Gate"],
+        hotels: ["Tuli Tiger Corridor", "Pench Jungle Camp", "Tiger Valley Resort", "The Pench Wilderness Resort", "Pench Tree Lodge"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife viewing"],
+        travelTips: "Pench is known for its wildlife safaris, so take a guided tour to explore the jungle and see the tigers."
+      },
+      patna: {
+        touristSpots: ["Patna Sahib Gurudwara", "Golghar", "Buddha Smriti Park", "Patna Museum", "Mahavir Mandir"],
+        hotels: ["Patna Hayat", "The Panache", "Hotel Patliputra Continental", "Hotel Chanakya", "Madhubani Residency"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Patna is rich in history, so take time to explore its temples, parks, and museums."
+      },
+      puri: {
+        touristSpots: ["Jagannath Temple", "Puri Beach", "Konark Sun Temple", "Chilika Lake", "Gundicha Temple"],
+        hotels: ["Mayfair Waves", "The Golden Tree", "Hotel Holiday Resort", "Puri Hotel", "Toshali Sands Resort"],
+        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
+        travelTips: "Puri is a popular pilgrimage destination, so avoid visiting during festivals if you prefer fewer crowds."
+      },
+      pondicherry: {
+        touristSpots: ["Sri Aurobindo Ashram", "Promenade Beach", "Auroville", "Botanical Garden", "Arulmigu Manakula Vinayagar Temple"],
+        hotels: ["The Promenade", "The Windflower Resort", "Le Dupleix", "Hotel De Pondicherry", "Hotel Atithi"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Pondicherry offers a mix of French colonial heritage and coastal beauty, so explore both the town and beaches."
+      },
+      rajkot: {
+        touristSpots: ["Ranjit Vilas Palace", "Watson Museum", "Rajkot Railway Station", "Aji Dam", "Shri Ranchhoddhji Temple"],
+        hotels: ["The Fern Residency", "Hotel Nova", "Silver Palace Hotel", "Regenta Inn", "Grand Regency"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Rajkot is a mix of historical and modern attractions, so explore its temples, museums, and vibrant streets."
+      },
+      ranthambore: {
+        touristSpots: ["Ranthambore National Park", "Ranthambore Fort", "Surwal Lake", "Padam Lake", "Jogi Mahal"],
+        hotels: ["Sultan Bagh Resort", "Ranthambore Regency", "Taj Sawai Madhopur Lodge", "Vanyavilas Resorts", "Khem Villas"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife watching"],
+        travelTips: "Ranthambore is famous for its tigers, so book a safari to catch a glimpse of wildlife in the national park."
+      },
+      rameswaram: {
+        touristSpots: ["Ramanathaswamy Temple", "Agni Theertham", "Pamban Bridge", "Dhanushkodi", "Gulf of Mannar Marine National Park"],
+        hotels: ["Hotel Daiwik", "Hotel Tamilnadu", "Ashoka Hotel", "JJ Resort", "Rameswaram Grand"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Rameswaram is an important pilgrimage site, so dress modestly and be prepared for crowds, especially during festival seasons."
+      },
+      rishikesh: {
+        touristSpots: ["Laxman Jhula", "Ram Jhula", "Neelkanth Mahadev Temple", "Triveni Ghat", "Rajaji National Park"],
+        hotels: ["Aloha on the Ganges", "Parmarth Niketan", "The Glasshouse on the Ganges", "Taj Rishikesh Resort & Spa", "Anand Kashi River Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Yoga mat (for yoga retreats)"],
+        travelTips: "Rishikesh is known for its yoga and adventure sports, so try rafting or attending a yoga session if you’re into spirituality."
+      },
+      rohtang: {
+        touristSpots: ["Rohtang Pass", "Solang Valley", "Manali", "Bhrigu Lake", "Marhi"],
+        hotels: ["Hotel Rohtang Manali", "The Highland Park", "Manali Heights", "Snow Valley Resorts", "Sterling Manali"],
+        travelEquipment: ["Warm clothing", "Comfortable trekking shoes", "Camera", "Water bottle", "Sunscreen"],
+        travelTips: "Rohtang is a popular snow destination, so carry snow gear during winter months and check if the pass is open before planning."
+      },
+      sanjayGandhi: {
+        touristSpots: ["Sanjay Gandhi National Park", "Kanheri Caves", "Borivali West", "Lion Safari Park", "Tulsi Lake"],
+        hotels: ["The Westin Mumbai", "Lalit Mumbai", "Hotel Executive Enclave", "GCC Hotel & Club", "Holiday Inn Mumbai"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Sanjay Gandhi National Park is one of the largest parks in Mumbai. Ideal for nature walks and picnics, so carry a picnic basket."
+      },
+      santaCruz: {
+        touristSpots: ["Santa Cruz Church", "Santa Cruz Beach", "Cabo de Rama Fort", "Polo Ground", "Saligao"],
+        hotels: ["The Leela Goa", "Holiday Inn Goa", "Hotel Fidalgo", "Marriott Resort", "Alila Diwa Goa"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Swimwear"],
+        travelTips: "Santa Cruz offers a peaceful beach experience, so relax on the beaches and explore local Goan cuisine."
+      },
+      sikkim: {
+        touristSpots: ["Tsongmo Lake", "Nathula Pass", "Pelling", "Rumtek Monastery", "Khangchendzonga National Park"],
+        hotels: ["The Elgin Nor-Khill", "Mayfair Spa Resort & Casino", "Hotel Sonamchen", "Sterling Gangtok", "Royal Plaza"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Sikkim is famous for its natural beauty and adventure activities like trekking, so pack accordingly and explore its vibrant culture."
+      },
+      shirdi: {
+        touristSpots: ["Shirdi Sai Baba Temple", "Dwarakamai", "Chavadi", "Sai Heritage Village", "Shani Shingnapur"],
+        hotels: ["Sun N Sand Shirdi", "Hotel Sai Tower", "Saibaba International Hotel", "Hotel Yogiraj", "Hotel Temple View"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Shirdi is a religious pilgrimage site, so visit the Sai Baba Temple early in the morning to avoid crowds."
+      },
+      shimla: {
+        touristSpots: ["The Ridge", "Jakhoo Temple", "Kufri", "Mall Road", "Christ Church"],
+        hotels: ["Wildflower Hall", "Taj Theog Resort", "Radisson Hotel Shimla", "Hotel Cedar Grand", "The Oberoi Cecil"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Shimla is a famous hill station, so it’s best to visit during the off-season to avoid large crowds."
+      },
+      singalila: {
+        touristSpots: ["Singalila National Park", "Sandakphu", "Phalut", "Rimbik", "Chitrey"],
+        hotels: ["Singalila Retreat", "Trekking Hut", "Rimbik Lodge", "Hotel Phalut", "Trekking Campground"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Trekking poles"],
+        travelTips: "Singalila is perfect for trekking and nature lovers, so make sure to carry proper trekking gear."
+      },
+      simlipal: {
+        touristSpots: ["Simlipal National Park", "Joranda Waterfall", "Barehipani Waterfall", "Gurguria", "Chahala"],
+        hotels: ["Mango Resort", "Simlipal Eco Resort", "Nature Camp", "Karanjia Lodge", "Woodpecker Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for bird watching"],
+        travelTips: "Simlipal National Park is a biodiversity hotspot, so take a guided safari to spot wildlife in their natural habitat."
+      },
+      srinagar: {
+        touristSpots: ["Dal Lake", "Nishat Bagh", "Shankaracharya Temple", "Mughal Gardens", "Hazratbal Shrine"],
+        hotels: ["The Lalit Grand Palace", "Houseboats", "Vivanta Dal View", "Hotel Krishnatara", "Regenta Central"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Warm clothing"],
+        travelTips: "Srinagar is known for its houseboats and gardens, so take a houseboat ride and explore Mughal gardens."
+      },
+      solang: {
+        touristSpots: ["Solang Valley", "Rohtang Pass", "Paragliding", "Skiing", "Horse Riding"],
+        hotels: ["Solang Valley Resort", "The Himalayan Village", "Solang Valley Retreat", "Apple Country Resort", "River View Resort"],
+        travelEquipment: ["Warm clothing", "Comfortable shoes", "Camera", "Water bottle", "Snow gear (during winter)"],
+        travelTips: "Solang Valley is ideal for adventure enthusiasts, so try skiing or paragliding during the winter months."
+      },
+      spiti: {
+        touristSpots: ["Key Monastery", "Tabo Monastery", "Chandratal Lake", "Pin Valley National Park", "Dhankar Monastery"],
+        hotels: ["Spiti Sarai", "Hotel Spiti", "Tabo Guest House", "Pin Valley Retreat", "The Spiti Valley Hotel"],
+        travelEquipment: ["Warm clothing", "Comfortable trekking shoes", "Camera", "Water bottle", "Binoculars for bird watching"],
+        travelTips: "Spiti is known for its remote beauty and monasteries, so plan your trip during summer for better accessibility."
+      },
+      sundarbans: {
+        touristSpots: ["Sundarbans National Park", "Netidhopani", "Sajnekhali Sanctuary", "Sudhanyakhali", "Dobanki"],
+        hotels: ["Sundarbans Tiger Camp", "The Sunderbans Resort", "Sunderban Gateway Resort", "Hotel Sunderban", "Sundarbans Jungle Camp"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife watching"],
+        travelTips: "Sundarbans is a UNESCO World Heritage site, so take a boat tour to explore the mangroves and wildlife, especially the Royal Bengal tiger."
+      },
+      surat: {
+        touristSpots: ["Dumas Beach", "Sarthana Nature Park", "Surat Castle", "Bardoli", "Jagdishchandra Bose Aquarium"],
+        hotels: ["The Gateway Hotel", "Surat Marriott Hotel", "Lords Plaza Surat", "Hotel Ginger Surat", "Vetro Inn"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Surat is famous for its textiles and diamond markets, so explore the local markets for a unique shopping experience."
+      },
+      tadoba: {
+        touristSpots: ["Tadoba National Park", "Tadoba Andhari Tiger Reserve", "Kolsa Range", "Moharli", "Pench River"],
+        hotels: ["Svasara Jungle Lodge", "Tadoba Tiger Reserve Resort", "Club Mahindra Tadoba", "Pench Tiger Jungle Resort", "Jungle Resort Tadoba"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife viewing"],
+        travelTips: "Tadoba is one of the best places for tiger sightings, so book a safari in advance to maximize your chances."
+      },
+      tirupati: {
+        touristSpots: ["Sri Venkateswara Temple", "Sri Kapileswara Swamy Temple", "Padmavathi Temple", "Talakona Waterfalls", "Sri Kalyana Venkateswaraswamy Temple"],
+        hotels: ["Tirumala Tirupati Devasthanams Hotels", "Hotel Bliss", "Fortune Select Grand Ridge", "Hotel Srinivasa", "Hotel Sai Surya"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Tirupati is a religious hub, so plan your temple visits early to avoid large crowds, especially during festivals."
+      },
+      tawang: {
+        touristSpots: ["Tawang Monastery", "Sela Pass", "Pangong Lake", "Tawang War Memorial", "Madhuri Lake"],
+        hotels: ["Hotel Tawang Regency", "Tawang Residency", "Mera Resort", "The Tawang View", "Zimithang Homestay"],
+        travelEquipment: ["Warm clothing", "Comfortable shoes", "Camera", "Water bottle", "Sunscreen"],
+        travelTips: "Tawang is at a high altitude, so acclimatize to the weather before heading out for treks or sightseeing."
+      },
+      trivandrum: {
+        touristSpots: ["Sri Padmanabhaswamy Temple", "Kovalam Beach", "Napier Museum", "Sree Chitra Art Gallery", "Pazhavangadi Ganapathy Temple"],
+        hotels: ["The Leela Kovalam", "Vivanta Trivandrum", "Hycinth By Sparsa", "Uday Samudra Leisure Beach Hotel", "Turtle On The Beach"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Beachwear"],
+        travelTips: "Trivandrum is known for its beaches and temples, so carry your sunscreen and camera for beach days and temple visits."
+      },
+      udaipur: {
+        touristSpots: ["City Palace", "Lake Pichola", "Jag Mandir", "Saheliyon Ki Bari", "Fateh Sagar Lake"],
+        hotels: ["The Oberoi Udaivilas", "Taj Lake Palace", "Leela Palace Udaipur", "Trident Udaipur", "Shiv Niwas Palace"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Udaipur is known as the 'City of Lakes,' so make sure to explore the lakes and palaces and enjoy a boat ride."
+      },
+      ujjain: {
+        touristSpots: ["Mahakaleshwar Temple", "Kal Bhairav Temple", "Harsiddhi Temple", "Ram Ghat", "Jantar Mantar Ujjain"],
+        hotels: ["Hotel Shree Krishan", "Hotel Anjushree", "Hotel Avantika", "Hotel Ujjwala", "Hotel Royal Palace"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Ujjain is an important religious city, so dress modestly and be prepared for crowds at the temples."
+      },
+      vadodara: {
+        touristSpots: ["Lakshmi Vilas Palace", "Baroda Museum and Picture Gallery", "Kirti Mandir", "Sardar Patel Planetarium", "Sur Sagar Lake"],
+        hotels: ["Gateway Hotel Vadodara", "Hotel Express Residency", "Regenta Inn", "Hotel Royal Orchid", "Vadodara Residency"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Vadodara is famous for its heritage and culture, so make sure to visit its royal palaces and museums."
+      },
+      varanasi: {
+        touristSpots: ["Kashi Vishwanath Temple", "Dashashwamedh Ghat", "Manikarnika Ghat", "Sarnath", "Assi Ghat"],
+        hotels: ["Taj Nadesar Palace", "Radisson Hotel Varanasi", "Hotel Clarks", "The Gateway Hotel Ganges", "Shree Raj Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Varanasi is an important pilgrimage destination, so prepare for crowds and respect local customs, especially around the ghats."
+      },
+      varkala: {
+        touristSpots: ["Varkala Beach", "Sivagiri Mutt", "Janardanaswamy Temple", "Kappil Lake", "Papanasam Beach"],
+        hotels: ["The Gateway Hotel Varkala", "Varkala Marine Palace", "Sivagiri Hotel", "Puthooram Beach Resort", "Varkala Heritage Villas"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Beachwear"],
+        travelTips: "Varkala is known for its beaches and spiritual vibe. Don't forget to take a dip in the holy Papanasam Beach."
+      },
+      valmiki: {
+        touristSpots: ["Valmiki National Park", "Chhathiya Ghat", "Lakhani Dam", "Torr River", "Bheriganga"],
+        hotels: ["Bihar Tourism Hotel", "Hotel Raj", "Valmiki Tourist Lodge", "Sita Sadan", "Rajhans Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Valmiki is an offbeat destination, so enjoy the calm and serene environment, especially around the national park."
+      },
+      vijayawada: {
+        touristSpots: ["Kanaka Durga Temple", "Undavalli Caves", "Bhavani Island", "Prakasam Barrage", "Kondapalli Fort"],
+        hotels: ["The Gateway Hotel Vijayawada", "Novotel Vijayawada", "Hotel Ilapuram", "Hotel Manorama", "Quality Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Vijayawada is a bustling city, so plan your travel carefully and explore its historical temples and scenic spots."
+      },
+      visakhapatnam: {
+        touristSpots: ["Ramakrishna Beach", "Kailasagiri", "Borra Caves", "Submarine Museum", "Thotlakonda"],
+        hotels: ["The Park Visakhapatnam", "Taj Gateway Hotel", "Novotel Visakhapatnam", "The Bheemli Resort", "Siri Hotel"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Visakhapatnam is a coastal city, so explore its beaches and visit the famous Kailasagiri Hill for panoramic views."
+      },
+      yercaud: {
+        touristSpots: ["Yercaud Lake", "Lady's Seat", "Shevaroy Temple", "Pagoda Point", "Botanical Garden"],
+        hotels: ["GRT Nature Trails", "Yercaud Grand Plaza", "Rockfort Resort", "TGI Star Holidays Yercaud", "The Cliff Resort"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Hat"],
+        travelTips: "Yercaud is a peaceful hill station, so enjoy the cool weather and visit the many scenic viewpoints and gardens."
+      },
+      wayanad: {
+        touristSpots: ["Edakkal Caves", "Soochipara Falls", "Pookode Lake", "Wayanad Wildlife Sanctuary", "Kuruva Island"],
+        hotels: ["Vythiri Village Resort", "The Windflower Resort", "Wayanad Silverwoods", "Soma Kerala Palace", "Green Gates Wayanad"],
+        travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for bird watching"],
+        travelTips: "Wayanad is perfect for nature lovers and adventurers, so plan a trek or visit its wildlife sanctuary."
+      },
+      ziro: {
+        touristSpots: ["Ziro Valley", "Talin Valley", "Kile Pakho", "Apatanis", "Shinmong Nature Camp"],
+        hotels: ["Ziro Valley Resort", "Hotel Himalaya", "Riverside Resort", "Apatani Guest House", "Ziro Green Park Resort"],
+        travelEquipment: ["Comfortable trekking shoes", "Sunscreen", "Camera", "Water bottle", "Binoculars for wildlife watching"],
+        travelTips: "Ziro is known for its scenic beauty and tribal culture. Make sure to check out the Apatani villages and their unique traditions."
+      }      
+
       // Additional destination details can be added here.
-    };
+   };
 
     // Determine URL parameters
     const cityParam = getQueryParam('city');
@@ -556,24 +1219,35 @@
       
       // Populate details page sections
       function populateGrid(containerId, items) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = '';
-        items.forEach(item => {
-          const div = document.createElement('div');
-          div.classList.add('grid-item');
-          div.textContent = item;
-          container.appendChild(div);
-        });
-      }
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('grid-item');
+
+        // Check if item is an object with name and image
+        if (typeof item === "object" && item.name && item.image) {
+          div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+            <h3>${item.name}</h3>
+          `;
+        } else {
+          div.textContent = item; // Fallback for text-based data
+        }
+
+        container.appendChild(div);
+      });
+    }
       const details = destinationDetails[city] || {
         touristSpots: ["Sample Tourist Spot 1", "Sample Tourist Spot 2", "Sample Tourist Spot 3"],
         hotels: ["Sample Hotel 1", "Sample Hotel 2", "Sample Hotel 3"],
         travelEquipment: ["Sample Equipment 1", "Sample Equipment 2"],
         travelTips: "Sample travel tips for this destination."
       };
-      populateGrid('tourist-spots', details.touristSpots);
-      populateGrid('hotels', details.hotels);
-      populateGrid('equipment', details.travelEquipment);
+      populateGrid('tourist-spots', details.touristSpots || []);
+      populateGrid('hotels', details.hotels || []);
+      populateGrid('equipment', details.travelEquipment || []);
       document.getElementById('tips-content').textContent = details.travelTips;
     }
     else if (categoryParam) {
