@@ -308,6 +308,23 @@
     }
     /* Initially hide search and details pages */
     #search-page, #details-page { display: none; }
+
+    /* Overlay styles for grid items (tourist spots and hotels) */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for clear text */
+  text-align: center;
+  padding: 10px 0;
+}
+.card-overlay h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
   </style>
 </head>
 <body>
@@ -1161,6 +1178,38 @@ goa: {
 
       // Additional destination details can be added here.
    };
+   // Add this function to render the destination details with overlays
+function renderDestinationDetails(city) {
+  const details = destinationDetails[city.toLowerCase()];
+  if (details) {
+    // Render Tourist Spots with overlay text
+    const tsContainer = document.getElementById('tourist-spots');
+    tsContainer.innerHTML = ''; // Clear previous items if any
+    details.touristSpots.forEach(spot => {
+      let gridItem = document.createElement('div');
+      gridItem.className = 'grid-item';
+      gridItem.style.backgroundImage = `url(${spot.image})`;
+      gridItem.style.position = 'relative';
+      gridItem.innerHTML = `<div class="card-overlay"><h3>${spot.name}</h3></div>`;
+      tsContainer.appendChild(gridItem);
+    });
+    
+    // Render Hotels with overlay text
+    const hotelsContainer = document.getElementById('hotels');
+    hotelsContainer.innerHTML = ''; // Clear previous items if any
+    if (details.hotels && details.hotels.length) {
+      details.hotels.forEach(hotel => {
+        let gridItem = document.createElement('div');
+        gridItem.className = 'grid-item';
+        gridItem.style.backgroundImage = `url(${hotel.image})`;
+        gridItem.style.position = 'relative';
+        gridItem.innerHTML = `<div class="card-overlay"><h3>${hotel.name}</h3></div>`;
+        hotelsContainer.appendChild(gridItem);
+      });
+    }
+  }
+}
+
 
     // Determine URL parameters
     const cityParam = getQueryParam('city');
