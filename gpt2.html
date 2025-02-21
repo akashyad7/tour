@@ -218,6 +218,39 @@
   font-size: 1.5rem;
 }
 
+/* New CSS for grid items in the details page */
+.grid-item {
+  position: relative;
+  width: 200px;               /* Match your homepage card sizes */
+  height: 250px;
+  margin: 10px;               /* Spacing between items */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Center the overlay text over the image */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);  /* Semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.card-overlay h3 {
+  margin: 0;
+  color: #64ffda;
+  font-size: 1.5rem;
+}
+
+
     /* New CSS for grid items on the details page */
 .grid-item {
   position: relative;
@@ -267,7 +300,7 @@
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
       gap: 20px;
     }
-    #tourist-spots .grid-item {
+    /* #tourist-spots .grid-item {
       .grid-item {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -279,12 +312,12 @@
 
     #hotels .grid-item {
       background-image: url('your-hotel-image-url.jpg'); /* Replace with actual image URL */
-      background-size: cover;
+      /* background-size: cover;
       background-position: center;
       color: white;
-      padding: 40px;
+      padding: 40px; */
     
-    }
+    /* } */ */
     /* NEW: Details Page Top-Right Search Bar */
     .details-search-container {
       position: absolute;
@@ -356,6 +389,11 @@
   margin: 0;
   color: #64ffda;
   font-size: 1.5rem;
+}
+#tourist-spots, #hotels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
   </style>
@@ -467,11 +505,11 @@
       </div>
     </div>
     <!-- Travel Equipment -->
-    <div class="section" id="equipment-section">
+    <!-- <div class="section" id="equipment-section">
       <h2>Travel Equipment</h2>
       <div class="tips-content">
         <!-- Equipment items will be inserted here -->
-      </div>
+      </div> -->
     </div>
     <!-- Travel Tips -->
     <div class="section" id="tips-section">
