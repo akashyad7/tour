@@ -1416,7 +1416,18 @@ function renderDestinationDetails(city) {
       });
     }
     
-  </script>
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    // Temporarily display the details page for testing purposes
+    document.getElementById('details-page').style.display = 'block';
+    
+    // Do not hide the landing page if you want to test both; if you want to see only the details page, you can hide it.
+    // document.getElementById('landing-page').style.display = 'none';
+    
+    // Call the render function for a test city (for example, 'delhi')
+    renderDestinationDetails('delhi');
+  });
+</script>
 </body>
 </html>
 
