@@ -185,18 +185,32 @@
       background-position: center;
     }
     .option-card:hover { transform: translateY(-10px); }
+
     .card-overlay {
       position: absolute;
-      top: 0;
+      top: 0; 
       left: 0;
       width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
+      height: 100%; 
+      background: rgba(0,0,0,0.6);
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
+    /* New CSS for grid items on the details page */
+.grid-item {
+  position: relative;
+  width: 200px;                /* Same width as your homepage category cards */
+  height: 250px;               /* Same height as your homepage category cards */
+  border-radius: 15px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin: 10px;                /* Spacing between items */
+}
+
     .card-overlay h3 {
       margin: 0;
       font-size: 1.5rem;
@@ -251,7 +265,7 @@
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
       gap: 20px;
     }
-    #tourist-spots .grid-item {
+    /* #tourist-spots .grid-item {
       .grid-item {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -263,11 +277,11 @@
 
     #hotels .grid-item {
       background-image: url('your-hotel-image-url.jpg'); /* Replace with actual image URL */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 40px;
-    }
+      /* background-size: cover; */
+      /* background-position: center; */
+      /* color: white; */
+      /* padding: 40px; */
+     */
 
     /* NEW: Details Page Top-Right Search Bar */
     .details-search-container {
@@ -1192,38 +1206,45 @@ goa: {
 
       // Additional destination details can be added here.
    };
+
+   // Function to handle city redirection
+  // function redirectTo(city) {
+  //   // Hide the landing page
+  //   document.getElementById('landing-page').style.display = 'none';
+  //   // Show the details page
+  //   document.getElementById('details-page').style.display = 'block';
+  //   // Render the details for the selected city
+  //   renderDestinationDetails(city);
+  // }
+
    
    // Add this function to render the destination details with overlays
-function renderDestinationDetails(city) {
+   function renderDestinationDetails(city) {
   const details = destinationDetails[city.toLowerCase()];
   if (details) {
-    // Render Tourist Spots with overlay text
     const tsContainer = document.getElementById('tourist-spots');
-    tsContainer.innerHTML = ''; // Clear previous items if any
+    tsContainer.innerHTML = '';  // Clear previous items
     details.touristSpots.forEach(spot => {
       let gridItem = document.createElement('div');
       gridItem.className = 'grid-item';
       gridItem.style.backgroundImage = `url(${spot.image})`;
-      gridItem.style.position = 'relative';
       gridItem.innerHTML = `<div class="card-overlay"><h3>${spot.name}</h3></div>`;
       tsContainer.appendChild(gridItem);
     });
     
-    // Render Hotels with overlay text
     const hotelsContainer = document.getElementById('hotels');
-    hotelsContainer.innerHTML = ''; // Clear previous items if any
-    if (details.hotels && details.hotels.length) {
-      details.hotels.forEach(hotel => {
-        let gridItem = document.createElement('div');
-        gridItem.className = 'grid-item';
-        gridItem.style.backgroundImage = `url(${hotel.image})`;
-        gridItem.style.position = 'relative';
-        gridItem.innerHTML = `<div class="card-overlay"><h3>${hotel.name}</h3></div>`;
-        hotelsContainer.appendChild(gridItem);
-      });
-    }
+    hotelsContainer.innerHTML = '';  // Clear previous items
+    details.hotels.forEach(hotel => {
+      let gridItem = document.createElement('div');
+      gridItem.className = 'grid-item';
+      gridItem.style.backgroundImage = `url(${hotel.image})`;
+      gridItem.innerHTML = `<div class="card-overlay"><h3>${hotel.name}</h3></div>`;
+      hotelsContainer.appendChild(gridItem);
+    });
   }
 }
+
+
 
 
     // Determine URL parameters
@@ -1419,18 +1440,17 @@ function renderDestinationDetails(city) {
   
   document.addEventListener("DOMContentLoaded", function() {
     // Temporarily display the details page for testing purposes
-    document.getElementById('details-page').style.display = 'block';
+    // document.getElementById('details-page').style.display = 'block';
     
-    // Do not hide the landing page if you want to test both; if you want to see only the details page, you can hide it.
-    // document.getElementById('landing-page').style.display = 'none';
+    // // Do not hide the landing page if you want to test both; if you want to see only the details page, you can hide it.
+    // // document.getElementById('landing-page').style.display = 'none';
     
-    // Call the render function for a test city (for example, 'delhi')
-    renderDestinationDetails('delhi');
+    // // Call the render function for a test city (for example, 'delhi')
+    // renderDestinationDetails('delhi');
   });
 </script>
 </body>
 </html>
-
 
 
 
