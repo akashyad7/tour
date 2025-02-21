@@ -238,11 +238,13 @@
       gap: 20px;
     }
     #tourist-spots .grid-item {
-      background-image: url('your-tourist-image-url.jpg'); /* Replace with actual image URL */
-      background-size: cover;
-      background-position: center;
-      color: white; /* Ensures text remains visible */
-      padding: 40px;
+      .grid-item {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease; }
+
     }
 
     #hotels .grid-item {
@@ -483,18 +485,18 @@
     const destinationDetails = {
       delhi: {
         touristSpots:[
-          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/beach.jpg?raw=true" },
-          { name: "India Gate", image: "https://upload.wikimedia.org/wikipedia/commons/b/b6/India_Gate_in_New_Delhi_03-2016_img3.jpg" },
-          { name: "Qutub Minar", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Qutub_Minar.JPG" },
-          { name: "Humayun's Tomb", image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Humayun%27s_Tomb_2016.jpg" },
-          { name: "Lotus Temple", image: "https://upload.wikimedia.org/wikipedia/commons/0/04/Lotus_Temple_Delhi.jpg" }
+          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/redfort.jpg?raw=true" },
+          { name: "India Gate", image: "https://github.com/akashyad7/images/blob/main/indiagate.jpg?raw=true" },
+          { name: "Qutub Minar", image: "https://github.com/akashyad7/images/blob/main/qutubminar.jpg?raw=true" },
+          { name: "Humayun's Tomb", image: "https://github.com/akashyad7/images/blob/main/Humayun's%20Tomb%201.jpg?raw=true" },
+          { name: "Lotus Temple", image: "https://github.com/akashyad7/images/blob/main/lotustemple.jpg?raw=true" }
       ],
         hotels: [
     { name: "The Imperial", image: "https://upload.wikimedia.org/wikipedia/commons/1/12/The_Imperial_New_Delhi.jpg" },
     { name: "Taj Palace", image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taj_Palace_Hotel%2C_New_Delhi.jpg" },
     { name: "ITC Maurya", image: "https://upload.wikimedia.org/wikipedia/commons/3/38/ITC_Maurya_New_Delhi.jpg" },
     { name: "Le Meridien", image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Le_Meridien_Hotel_New_Delhi.jpg" },
-    { name: "Hyatt Regency", image: "https://upload   .wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg" }
+    { name: "Hyatt Regency", image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg" }
   ],
         travelEquipment: ["Comfortable walking shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
         travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation."
@@ -619,12 +621,7 @@
         travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
         travelTips: "Daman offers a peaceful beach experience. Go for a long walk along the beaches during sunrise or sunset."
       },
-      delhi: {
-        touristSpots: ["Red Fort", "India Gate", "Qutub Minar", "Humayun's Tomb", "Lotus Temple"],
-        hotels: ["The Imperial", "Taj Palace", "ITC Maurya", "Le Meridien", "Hyatt Regency"],
-        travelEquipment: ["Comfortable walking shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
-        travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation."
-      },
+      
       diu: {
         touristSpots: ["Diu Fort", "Nagoa Beach", "St. Paul's Church", "Jallandhar Beach", "Gangeshwar Temple"],
         hotels: ["The Diu Hotal", "Radhika Beach Resort", "Cidade De Diu", "The Kohinoor Hotel", "Hotel Apana"],
@@ -649,12 +646,26 @@
         travelEquipment: ["Binoculars", "Camera", "Comfortable safari clothing", "Water bottle", "Sunhat"],
         travelTips: "Book your safari early, as the slots fill quickly, and avoid visiting during peak summer for a more comfortable experience."
       },
-      goa: {
-        touristSpots: ["Calangute Beach", "Anjuna Beach", "Baga Beach", "Fort Aguada", "Basilica of Bom Jesus"],
-        hotels: ["Taj Exotica Resort", "The Leela Goa", "Radisson Blu Resort", "Holiday Inn Resort", "Grand Hyatt Goa"],
-        travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Camera", "Water bottle"],
-        travelTips: "Goa is vibrant throughout the year, but visiting during the monsoon season offers a quieter experience."
-      },
+goa: {
+  touristSpots: [
+    { name: "Baga Beach", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Calangute Beach", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Anjuna Beach", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Fort Aguada", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Dudhsagar Falls", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" }
+  ],
+  hotels: [
+    { name: "Taj Exotica", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "The Leela Goa", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Park Hyatt Goa", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Goa Marriott Resort", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" },
+    { name: "Vivanta by Taj", image: "https://github.com/akashyad7/images/blob/main/goa.jpg?raw=true" }
+  ],
+  travelEquipment: ["Beachwear", "Sunscreen", "Camera", "Hat", "Water bottle"],
+  travelTips: "Goa is best visited during the cooler months from November to February. Enjoy the beaches and vibrant nightlife."
+},
+
+      
       gokarna: {
         touristSpots: ["Om Beach", "Kudle Beach", "Gokarna Beach", "Mirjan Fort", "Utsav Beach"],
         hotels: ["Namaste Yoga Farm", "Kudle Beach View Resort", "Om Beach Resort", "Gokarna International Beach Resort", "Hotel SwaSwara"],
@@ -1228,11 +1239,17 @@
 
         // Check if item is an object with name and image
         if (typeof item === "object" && item.name && item.image) {
-          div.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-            <h3>${item.name}</h3>
-          `;
-        } else {
+          div.innerHTML = `<h3>${item.name}</h3>`;
+          div.style.backgroundImage = `url('${item.image}')`;
+          div.style.backgroundSize = "cover";
+          div.style.backgroundPosition = "center";
+          div.style.padding = "40px";  // adjust padding as needed
+          div.style.color = "#fff";      // ensures text readability
+          div.style.height = "250px";    // sets a fixed height so the background shows
+        }
+
+ 
+        else {
           div.textContent = item; // Fallback for text-based data
         }
 
