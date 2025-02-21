@@ -186,36 +186,38 @@
     }
     .option-card:hover { transform: translateY(-10px); }
 
-    .card-overlay {
-      position: absolute;
-      top: 0; 
-      left: 0;
-      width: 100%;
-      height: 100%; 
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    /* New CSS for grid items on the details page */
+    /* Style for grid items on the details page (tourist spots & hotels) */
 .grid-item {
   position: relative;
-  width: 200px;                /* Same width as your homepage category cards */
-  height: 250px;               /* Same height as your homepage category cards */
-  border-radius: 15px;
-  overflow: hidden;
+  width: 200px;                /* Same as homepage category cards */
+  height: 250px;               /* Same as homepage category cards */
+  margin: 10px;                /* Spacing between items */
   background-size: cover;
   background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  margin: 10px;                /* Spacing between items */
 }
 
-    .card-overlay h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: #64ffda;
-    }
+/* Ensure the overlay text is centered over the image */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);  /* semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.card-overlay h3 {
+  margin: 0;
+  color: #64ffda;
+  font-size: 1.5rem;
+}
+
     /* New CSS for grid items on the details page */
 .grid-item {
   position: relative;
@@ -265,7 +267,7 @@
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
       gap: 20px;
     }
-    /* #tourist-spots .grid-item {
+    #tourist-spots .grid-item {
       .grid-item {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -277,12 +279,12 @@
 
     #hotels .grid-item {
       background-image: url('your-hotel-image-url.jpg'); /* Replace with actual image URL */
-      /* background-size: cover; */
-      /* background-position: center; */
-      /* color: white; */
-      /* padding: 40px; */
-     */
-
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px;
+    
+    }
     /* NEW: Details Page Top-Right Search Bar */
     .details-search-container {
       position: absolute;
@@ -336,20 +338,23 @@
     }
     /* Initially hide search and details pages */
     #search-page, #details-page { display: none; }
-
+    
     /* Overlay styles for grid items (tourist spots and hotels) */
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay for clear text */
-  text-align: center;
-  padding: 10px 0;
-}
-.card-overlay h3 {
+    .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);  /* semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .card-overlay h3 {
   margin: 0;
-  color: #fff;
+  color: #64ffda;
   font-size: 1.5rem;
 }
 
@@ -464,7 +469,7 @@
     <!-- Travel Equipment -->
     <div class="section" id="equipment-section">
       <h2>Travel Equipment</h2>
-      <div class="grid-container" id="equipment">
+      <div class="tips-content">
         <!-- Equipment items will be inserted here -->
       </div>
     </div>
@@ -553,8 +558,20 @@
         travelTips: "Mumbai is bustling, so plan your travel accordingly, and be aware of local traffic conditions."
       },
       ahmedabad: {
-      touristSpots: ["Sabarmati Ashram", "Sidi Saiyyed Mosque", "Kankaria Lake", "Akshardham Temple", "Adalaj Stepwell"],
-      hotels: ["Hyatt Ahmedabad", "Novotel Ahmedabad", "The House of MG", "Crowne Plaza Ahmedabad", "Radisson Blu Ahmedabad"],
+        touristSpots:[
+          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/redfort.jpg?raw=true" },
+          { name: "India Gate", image: "https://github.com/akashyad7/images/blob/main/indiagate.jpg?raw=true" },
+          { name: "Qutub Minar", image: "https://github.com/akashyad7/images/blob/main/qutubminar.jpg?raw=true" },
+          { name: "Humayun's Tomb", image: "https://github.com/akashyad7/images/blob/main/Humayun's%20Tomb%201.jpg?raw=true" },
+          { name: "Lotus Temple", image: "https://github.com/akashyad7/images/blob/main/lotustemple.jpg?raw=true" }
+      ],
+        hotels: [
+    { name: "The Imperial", image: "https://upload.wikimedia.org/wikipedia/commons/1/12/The_Imperial_New_Delhi.jpg" },
+    { name: "Taj Palace", image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taj_Palace_Hotel%2C_New_Delhi.jpg" },
+    { name: "ITC Maurya", image: "https://upload.wikimedia.org/wikipedia/commons/3/38/ITC_Maurya_New_Delhi.jpg" },
+    { name: "Le Meridien", image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Le_Meridien_Hotel_New_Delhi.jpg" },
+    { name: "Hyatt Regency", image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg" }
+  ],
       travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
       travelTips: "Ahmedabad can get hot, so carry water and plan indoor visits during the afternoon heat."
       },
