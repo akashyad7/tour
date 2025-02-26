@@ -289,20 +289,67 @@ p { font-size: 1.2rem; color: #8892b0; }
 /* ---------- Corrected Grid Items & Overlay for Tourist Spots and Hotels ---------- */
 #tourist-spots, #hotels {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
-.grid-item {
+
+.tourist-spot, .hotel {
   position: relative;
   width: 100%;
-  /* Use padding-top to enforce a 200:250 (or 1:1.25) ratio.
-     (250/200 = 1.25, so 125% padding-top) */
-  padding-top: 125%;
-  background-size: cover;
-  background-position: center;
+  height: 250px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.tourist-spot img, .hotel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+#tourist-spots, #hotels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.tourist-spot, .hotel {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.tourist-spot img, .hotel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.tourist-spot-text, .hotel-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #64ffda;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .card-overlay {
@@ -311,12 +358,13 @@ p { font-size: 1.2rem; color: #8892b0; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);  /* Semi-transparent overlay */
+  background: rgba(0, 0, 0, 0.4);  
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 .card-overlay h3 {
   margin: 0;
   color: #64ffda;
