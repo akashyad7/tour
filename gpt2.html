@@ -173,17 +173,18 @@
       margin-top: 30px;
     }
     .option-card {
-      position: relative;
-      width: 200px;
-      height: 250px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      background-size: cover;
-      background-position: center;
-    }
+  position: relative;
+  width: 100%; /* Changed from 200px to scale with container */
+  max-width: 200px; /* Limits max width on larger screens */
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
     .option-card:hover { transform: translateY(-10px); }
     .card-overlay {
       position: absolute;
@@ -295,19 +296,197 @@
     
     /* Responsive Design */
     @media (max-width:768px) {
-      .side-decor { display: none; }
-      .content { margin: 20px auto; padding: 20px; width: 95%; }
-      h1 { font-size: 2.5rem; }
-      p { font-size: 1rem; }
-      .search-container { flex-direction: column; }
-      .search-bar { width: 90%; margin-bottom: 10px; }
-      .option-card { width: 100%; }
-      .options { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-      #main-suggestions { width: 90%; }
-      .details-search-container { width: 90%; right: 5%; top: 20px; }
-    }
+  .side-decor { display: none; }
+  .content { margin: 20px auto; padding: 20px; width: 95%; }
+  h1 { font-size: 2.5rem; }
+  p { font-size: 1rem; }
+  .search-container { flex-direction: column; }
+  .search-bar { width: 90%; margin-bottom: 10px; }
+  .option-card { width: 100%; }
+  .options { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  #main-suggestions { width: 90%; }
+  .details-search-container { width: 90%; right: 5%; top: 20px; }
+}
     /* Initially hide search and details pages */
     #search-page, #details-page { display: none; }
+
+    /* Styling for tourist spots on the Delhi details page */
+
+/* Styling for tourist spots to match homepage */
+#tourist-spots .grid-item,
+#hotels .grid-item {
+    position: relative;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#tourist-spots .grid-item h3,
+#hotels .grid-item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+    background: none;
+    padding: 0;
+    transition: transform 0.3s ease; /* Move transition here */
+}
+
+#tourist-spots .grid-item h3:hover,
+#hotels .grid-item h3:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Scale text only */
+}
+#tourist-spots .grid-item::before,
+#hotels .grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* Keep the overlay as is */
+    z-index: 1;
+}
+
+#tourist-spots .grid-item h3,
+#hotels .grid-item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* Soft white instead of green */
+    font-size: 1.5rem;
+    font-weight: 600; /* Slightly lighter than bold for elegance */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for contrast */
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+    background: none;
+    padding: 0;
+}
+#tourist-spots .grid-item a,
+#hotels .grid-item a {
+    color: #ffffff; /* Matches your existing text color */
+    text-decoration: none; /* No underline */
+    display: block; /* Fills the grid item */
+    height: 100%;
+    width: 100%;
+}
+
+#tourist-spots .grid-item a:hover,
+#hotels .grid-item a:hover {
+    color: #64ffda; /* Green on hover to match your theme */
+}
+
+#travel-equipment {
+    margin-top: 20px; /* Space above the section */
+}
+
+#travel-equipment h2 {
+    color: #64ffda; /* Green to match your theme */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#equipment {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    gap: 20px; /* Space between blocks */
+}
+
+#equipment .grid-item {
+    background: rgba(17, 34, 64, 0.5); /* Darker, subtler background */
+    padding: 20px; /* Inner spacing */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center text */
+    color: #ccd6f6; /* Light text color */
+    height: 80px; /* Fixed height */
+    display: flex; /* Center content */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    transition: none; /* No hover effects */
+}
+
+#equipment .grid-item h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2rem; /* Slightly smaller text */
+    font-weight: 400; /* Lighter weight */
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    #equipment {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    #equipment {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+#city-grid .grid-item {
+    position: relative;
+    width: 150px; /* Smaller than tourist spots (250px height) */
+    height: 100px; /* Smaller size */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#city-grid .grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* Same overlay */
+    z-index: 1;
+}
+
+#city-grid .grid-item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d7bde2; /* Lavender from your theme */
+    font-size: 1.1rem; /* Smaller text */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+    background: none;
+    padding: 0;
+}
+
+#city-grid .grid-item:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+}
+/* Mobile view: 2 columns for cities */
+@media (max-width: 768px) {
+    #city-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    }
+    #city-grid .grid-item {
+        width: 100%; /* Full width of column */
+        height: 100px; /* Keep height consistent */
+    }
+}
   </style>
 </head>
 <body>
@@ -485,51 +664,66 @@
     const destinationDetails = {
       delhi: {
         touristSpots:[ 
-          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/redfort.jpg?raw=true" },
-          { name: "India Gate", image: "https://github.com/akashyad7/images/blob/main/indiagate.jpg?raw=true" },
-          { name: "Qutub Minar", image: "https://github.com/akashyad7/images/blob/main/qutubminar.jpg?raw=true" },
-          { name: "Humayun's Tomb", image: "https://github.com/akashyad7/images/blob/main/Humayun's%20Tomb%201.jpg?raw=true" },
-          { name: "Lotus Temple", image: "https://github.com/akashyad7/images/blob/main/lotustemple.jpg?raw=true" }
+          { name: "Red Fort", image: "https://github.com/akashyad7/images/blob/main/redfort.jpg?raw=true", url: "" },
+          { name: "India Gate", image: "https://github.com/akashyad7/images/blob/main/indiagate.jpg?raw=true", url: "" },
+          { name: "Qutub Minar", image: "https://github.com/akashyad7/images/blob/main/qutubminar.jpg?raw=true", url: "" },
+          { name: "Lotus Temple", image: "https://github.com/akashyad7/images/blob/main/lotustemple.jpg?raw=true", url: "" }
       ],
         hotels: [
-          { name: "The Imperial", image: "https://upload.wikimedia.org/wikipedia/commons/1/12/The_Imperial_New_Delhi.jpg" },
-          { name: "Taj Palace", image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taj_Palace_Hotel%2C_New_Delhi.jpg" },
-          { name: "ITC Maurya", image: "https://upload.wikimedia.org/wikipedia/commons/3/38/ITC_Maurya_New_Delhi.jpg" },
-          { name: "Le Meridien", image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Le_Meridien_Hotel_New_Delhi.jpg" },
-          { name: "Hyatt Regency", image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg" }
+          { name: "The Imperial", image: "https://upload.wikimedia.org/wikipedia/commons/1/12/The_Imperial_New_Delhi.jpg", url: "https://maps.app.goo.gl/GeXqCeJ5VphCZxRZA" },
+          { name: "Taj Palace", image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taj_Palace_Hotel%2C_New_Delhi.jpg", url: "" },
+          { name: "ITC Maurya", image: "https://upload.wikimedia.org/wikipedia/commons/3/38/ITC_Maurya_New_Delhi.jpg", url: "" },
+          { name: "Le Meridien", image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Le_Meridien_Hotel_New_Delhi.jpg", url: "" },
+          { name: "Hyatt Regency", image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hyatt_Regency_Delhi.jpg", url: "" }
   ],
         travelEquipment: ["Comfortable walking shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
-        travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation."
+        travelTips: "Plan your visits early in the morning to avoid the heat, and use the metro for quick transportation.",
+        image: "https://i.pinimg.com/474x/d6/db/05/d6db054449ae5515da69a959d2d14704.jpg"
       },
       mumbai: {
-        touristSpots: ["Gateway of India", "Marine Drive", "Elephanta Caves", "Chhatrapati Shivaji Terminus", "Haji Ali Dargah"],
-        hotels: ["The Taj Mahal Palace", "Trident Nariman Point", "The Oberoi", "JW Marriott", "Sahara Star"],
-        travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Umbrella", "Camera"],
-        travelTips: "Mumbai is bustling, so plan your travel accordingly, and be aware of local traffic conditions."
-      },
+    touristSpots: [
+        { name: "Gateway of India", image: "https://github.com/akashyad7/images/blob/main/Gateway-of-India-Mumai-monument-2012.jpg?raw=true.jpg", url: "https://maps.app.goo.gl/AiccApx9qqHyjk4Y8" },
+        { name: "Marine Drive", image: "https://i.pinimg.com/736x/39/cb/be/39cbbea122da10bb934046e69df69240.jpg", url: "https://maps.app.goo.gl/yc5wtFnMGWAUeYKo8" },
+        { name: "Elephanta Caves", image: "https://i.pinimg.com/736x/3a/c2/a6/3ac2a69a8a7271449028ee6a0a31c42d.jpg", url: "https://maps.app.goo.gl/RaiJtXRcBCc1s7wa9" },
+        { name: "Chhatrapati Shivaji Terminus", image: "https://i.pinimg.com/736x/80/24/5d/80245dfebac3d658f41b46d65d2ac8fd.jpg", url: "https://maps.app.goo.gl/vPGD2X2dXwHE9pUX7" }
+    ],
+    hotels: [
+        { name: "The Taj Mahal Palace", image: "https://i.pinimg.com/474x/57/2a/e0/572ae03b54467078b7b29cc3979c61f4.jpg", url: "https://maps.app.goo.gl/dbeJAVxwU9nCELLg7" },
+        { name: "Trident Nariman Point", image: "https://i.pinimg.com/736x/75/66/f0/7566f01febff8a8d16da3303d585b927.jpg", url: "https://maps.app.goo.gl/chx7WDYvvWL2cQJA9" },
+        { name: "The Oberoi", image: "https://i.pinimg.com/474x/01/1f/fa/011ffa96a6191b21651e61d3e12f63c4.jpg", url: "https://maps.app.goo.gl/V94LgLcqg3FXrz4b7" },
+        { name: "JW Marriott", image: "https://i.pinimg.com/474x/47/d4/40/47d440ab230255607d456bc66670cb39.jpg", url: "https://maps.app.goo.gl/y9qCQmpu8A4scQM79" }
+    ],
+    travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Umbrella", "Camera"],
+    travelTips: "Mumbai is bustling, so plan your travel accordingly, and be aware of local traffic conditions.",
+    image: "https://i.pinimg.com/474x/75/01/c5/7501c5e170c822f5e91e29f9eba7fb89.jpg"
+},
       ahmedabad: {
       touristSpots: ["Sabarmati Ashram", "Sidi Saiyyed Mosque", "Kankaria Lake", "Akshardham Temple", "Adalaj Stepwell"],
       hotels: ["Hyatt Ahmedabad", "Novotel Ahmedabad", "The House of MG", "Crowne Plaza Ahmedabad", "Radisson Blu Ahmedabad"],
       travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
-      travelTips: "Ahmedabad can get hot, so carry water and plan indoor visits during the afternoon heat."
+      travelTips: "Ahmedabad can get hot, so carry water and plan indoor visits during the afternoon heat.",
+        image: "https://i.pinimg.com/474x/d6/db/05/d6db054449ae5515da69a959d2d14704.jpg"
       },
       ajmer: {
         touristSpots: ["Ajmer Sharif Dargah", "Ana Sagar Lake", "Taragarh Fort", "Adhai Din Ka Jhonpra", "Mayo College"],
         hotels: ["Ajmer Ashok", "Prithviraj Hotel", "The Greenhouse Resort", "Hotel Dinesh", "Krishna Inn"],
         travelEquipment: ["Light clothing", "Sunscreen", "Comfortable footwear", "Hat", "Water bottle"],
-        travelTips: "Ajmer is a religious destination, so dress modestly and be respectful at the Dargah."
+        travelTips: "Ajmer is a religious destination, so dress modestly and be respectful at the Dargah.",
+        image: "https://i.pinimg.com/474x/d6/db/05/d6db054449ae5515da69a959d2d14704.jpg"
       },
       alibaug: {
         touristSpots: ["Alibaug Beach", "Kihim Beach", "Kolaba Fort", "Nagaon Beach", "Saswane Beach"],
         hotels: ["Radisson Blu Resort", "Fortune Select Exotica", "The Fern Silvanus Resort", "U Tropicana Alibaug", "Casa De Kihim"],
         travelEquipment: ["Beachwear", "Sunscreen", "Comfortable sandals", "Hat", "Camera"],
-        travelTips: "Best to visit during the cooler months. Be prepared for a relaxed beach vibe."
+        travelTips: "Best to visit during the cooler months. Be prepared for a relaxed beach vibe.",
+        image: "https://i.pinimg.com/474x/d6/db/05/d6db054449ae5515da69a959d2d14704.jpg"
       },
       amritsar: {
         touristSpots: ["Golden Temple", "Jallianwala Bagh", "Wagah Border", "Durgiana Temple", "Mata Lal Devi Mandir"],
         hotels: ["Taj Swarna", "Holiday Inn Amritsar", "Ramada Amritsar", "Hotel Shiraz Continental", "The Hyatt Amritsar"],
         travelEquipment: ["Comfortable shoes", "Sunscreen", "Camera", "Hat", "Water bottle"],
-        travelTips: "Visit the Golden Temple early in the morning to experience the peaceful atmosphere."
+        travelTips: "Visit the Golden Temple early in the morning to experience the peaceful atmosphere.",
+        image: "https://i.pinimg.com/474x/d6/db/05/d6db054449ae5515da69a959d2d14704.jpg"
       },
       auli: {
         touristSpots: ["Auli Ski Resort", "Chenab Lake", "Gurso Bugyal", "Nanda Devi Peak", "Joshimath"],
@@ -1230,32 +1424,40 @@ goa: {
       
       // Populate details page sections
       function populateGrid(containerId, items) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
 
-      items.forEach(item => {
+    items.forEach(item => {
         const div = document.createElement('div');
         div.classList.add('grid-item');
 
-        // Check if item is an object with name and image
-        if (typeof item === "object" && item.name && item.image) {
-          div.innerHTML = `<h3>${item.name}</h3>`;
-          div.style.backgroundImage = `url('${item.image}')`;
-          div.style.backgroundSize = "cover";
-          div.style.backgroundPosition = "center";
-          div.style.padding = "40px";  // adjust padding as needed
-          div.style.color = "#fff";      // ensures text readability
-          div.style.height = "250px";    // sets a fixed height so the background shows
-        }
-
- 
-        else {
-          div.textContent = item; // Fallback for text-based data
+        if (typeof item === "object" && item.name) {
+            const link = item.url ? `<a href="${item.url}" target="_blank" style="color: #fff; text-decoration: none;"><h3>${item.name}</h3></a>` : `<h3>${item.name}</h3>`;
+            div.innerHTML = link;
+            if (item.image) {
+                div.style.backgroundImage = `url('${item.image}')`;
+                div.style.backgroundSize = "cover";
+                div.style.backgroundPosition = "center";
+                div.style.padding = "40px";
+                div.style.color = "#fff";
+                div.style.height = "250px";
+            }
+        } else {
+            div.innerHTML = `<h3>${item}</h3>`;
+            div.style.padding = "20px"; // Consistent padding
+            div.style.background = "rgba(17, 34, 64, 0.5)"; // Darker, subtler background
+            div.style.borderRadius = "10px";
+            div.style.textAlign = "center";
+            div.style.color = "#ccd6f6";
+            div.style.height = "80px"; // Fixed height for uniformity
+            div.style.display = "flex"; // Center content vertically
+            div.style.alignItems = "center"; // Vertical centering
+            div.style.justifyContent = "center"; // Horizontal centering
         }
 
         container.appendChild(div);
-      });
-    }
+    });
+}
       const details = destinationDetails[city] || {
         touristSpots: ["Sample Tourist Spot 1", "Sample Tourist Spot 2", "Sample Tourist Spot 3"],
         hotels: ["Sample Hotel 1", "Sample Hotel 2", "Sample Hotel 3"],
@@ -1268,43 +1470,48 @@ goa: {
       document.getElementById('tips-content').textContent = details.travelTips;
     }
     else if (categoryParam) {
-      // Show search page for category
-      landingPage.style.display = 'none';
-      searchPage.style.display = 'block';
-      detailsPage.style.display = 'none';
-      
-      document.getElementById('search-category-title').textContent =
+    // Show search page for category
+    landingPage.style.display = 'none';
+    searchPage.style.display = 'block';
+    detailsPage.style.display = 'none';
+    
+    document.getElementById('search-category-title').textContent =
         "Search Cities - " + categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1);
-      document.getElementById('search-description').textContent =
+    document.getElementById('search-description').textContent =
         "Type to search for cities under the " + categoryParam + " category.";
-      
-      const cities = categoryCities[categoryParam] || [];
-      function displayCities(filteredCities) {
+    
+    const cities = categoryCities[categoryParam] || []; // Define cities here
+
+    function displayCities(filteredCities) {
         const cityGrid = document.getElementById('city-grid');
         cityGrid.innerHTML = '';
+        console.log("Category:", categoryParam, "Cities:", filteredCities); // Debug line
         if (filteredCities.length === 0) {
-          cityGrid.innerHTML = '<p style="padding:15px; color:#8892b0;">No cities found.</p>';
-          return;
+            cityGrid.innerHTML = '<p style="padding:15px; color:#8892b0;">No cities found.</p>';
+            return;
         }
         filteredCities.forEach(function(city) {
-          const div = document.createElement('div');
-          div.classList.add('city-item');
-          div.textContent = city;
-          div.addEventListener('click', function() {
-            window.location.href = window.location.pathname + '?city=' + encodeURIComponent(city) + '&category=' + encodeURIComponent(categoryParam);
-          });
-          cityGrid.appendChild(div);
+            const details = destinationDetails[city.toLowerCase()] || {}; // Match case
+            const div = document.createElement('div');
+            div.classList.add('grid-item');
+            div.style.backgroundImage = details.image ? `url(${details.image})` : 'none';
+            div.innerHTML = `<h3>${city.charAt(0).toUpperCase() + city.slice(1)}</h3>`;
+            div.addEventListener('click', function() {
+                window.location.href = window.location.pathname + '?city=' + encodeURIComponent(city) + '&category=' + encodeURIComponent(categoryParam);
+            });
+            cityGrid.appendChild(div);
         });
-      }
-      displayCities(cities);
-      document.getElementById('search-input').addEventListener('input', function() {
+    }
+
+    displayCities(cities); // Call with defined cities
+    document.getElementById('search-input').addEventListener('input', function() {
         const query = this.value.toLowerCase();
         const filteredCities = cities.filter(function(city) {
-          return city.toLowerCase().includes(query);
+            return city.toLowerCase().includes(query);
         });
         displayCities(filteredCities);
-      });
-    }
+    });
+}
     else {
       // Show landing page (no parameters)
       landingPage.style.display = 'block';
